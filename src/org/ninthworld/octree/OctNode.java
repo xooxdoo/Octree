@@ -17,6 +17,7 @@ public class OctNode {
 	
 	public void generate(Debug lookup){
 		int value = -1;
+		outer:
 		for(int x=0; x<width; x++){
 			for(int y=0; y<width; y++){
 				for(int z=0; z<width; z++){
@@ -31,6 +32,7 @@ public class OctNode {
 							children[i] = new OctNode(array, (int)(width/2f), offS);
 							children[i].generate(lookup);
 						}
+						break outer;
 					}
 				}
 			}

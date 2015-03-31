@@ -51,7 +51,13 @@ public class Main {
 		for(int x=0; x<chunkW; x++){
 			for(int y=0; y<chunkW; y++){
 				for(int z=0; z<chunkW; z++){
-					if(y<=7){
+					if(y == 9){
+						if(Math.random() > .8){
+							chunk[x][y][z] = 1;
+						}else{
+							chunk[x][y][z] = 0;
+						}
+					}else if(y < 9){
 						chunk[x][y][z] = 1;
 					}else{
 						chunk[x][y][z] = 0;
