@@ -31,9 +31,7 @@ public class Main {
 	float voxelSize = 8;
 	int chunkW = 16;
 	Integer[][][] chunk = new Integer[chunkW][chunkW][chunkW];
-	
 	Octree octree;
-	
 	List<OctNode> finalNodes;
 	
 	private void initialize() {
@@ -62,11 +60,17 @@ public class Main {
 			}
 		}
 		
+		// Initialize Octree Object
+		
 		octree = new Octree(chunk);
+		
+		// Generate Octree
+		
 		Debug lookup = new Debug();
 		octree.generate(lookup);
 		System.out.println(lookup.num);
 		
+		// Generate an ArrayList of all the nodes without children to be drawn
 		finalNodes = new ArrayList<OctNode>();
 		octree.toArrayList(finalNodes);
 		
